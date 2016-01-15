@@ -10,6 +10,7 @@ package dolf.zhang.utilities.constant;
 @SuppressWarnings("all")
 public class ConstantUtilities {
 
+
 	private ConstantUtilities(){}
 
 	public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
