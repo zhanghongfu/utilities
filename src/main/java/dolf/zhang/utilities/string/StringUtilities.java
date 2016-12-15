@@ -11,18 +11,18 @@ import java.util.List;
 /**
  * @author dolf
  * @version V1.0
- * @Description:  字符串帮助类
+ * @Description: 字符串帮助类
  * @date 16/1/8
  */
 public class StringUtilities {
 
-    private StringUtilities(){}
-
-
+    private StringUtilities() {
+    }
 
 
     /**
-     *  byte 转 string
+     * byte 转 string
+     *
      * @param data
      * @return
      */
@@ -40,6 +40,7 @@ public class StringUtilities {
 
     /**
      * string 转 byte
+     *
      * @param data
      * @return
      */
@@ -57,10 +58,11 @@ public class StringUtilities {
 
     /**
      * string 转 list
+     *
      * @param str
      * @return
      */
-    public static List<Long> splitStrToList(String str){
+    public static List<Long> splitStrToList(String str) {
         List<Long> list = new ArrayList<Long>();
         if (StringUtils.isEmpty(str)) {
             return new ArrayList<Long>(0);
@@ -69,16 +71,17 @@ public class StringUtilities {
         for (String string : split) {
             list.add(NumberUtils.toLong(string, -1l));
         }
-        return list ;
+        return list;
     }
 
 
     /**
      * string 转 list
+     *
      * @param str
      * @return
      */
-    public static List<Integer> splitStrToListInt(String str){
+    public static List<Integer> splitStrToListInt(String str) {
         List<Integer> list = new ArrayList<Integer>();
         if (StringUtils.isEmpty(str)) {
             return new ArrayList<Integer>(0);
@@ -87,16 +90,17 @@ public class StringUtilities {
         for (String string : split) {
             list.add(NumberUtils.toInt(string, -1));
         }
-        return list ;
+        return list;
     }
 
 
     /**
      * string 转 list
+     *
      * @param str
      * @return
      */
-    public static List<String> splitStrToListString(String str){
+    public static List<String> splitStrToListString(String str) {
         List<String> list = new ArrayList<String>();
         if (StringUtils.isEmpty(str)) {
             return new ArrayList<String>(0);
@@ -105,7 +109,7 @@ public class StringUtilities {
         for (String string : split) {
             list.add(string);
         }
-        return list ;
+        return list;
     }
 
 
@@ -124,12 +128,13 @@ public class StringUtilities {
 
     /**
      * 拆分字符串，为long 的list类型
+     *
      * @param str
      * @param splitChars
      * @return
      */
     public static List<Long> splitStrLongList(String str, String splitChars) {
-        if(StringUtils.isEmpty(str))
+        if (StringUtils.isEmpty(str))
             return new ArrayList<Long>(0);
         String[] strs = str.split(splitChars);
         List<Long> list = new ArrayList<Long>(strs.length);
@@ -141,12 +146,13 @@ public class StringUtilities {
 
     /**
      * 拆分字符串，为Integer 的list类型
+     *
      * @param str
      * @param splitChars
      * @return
      */
     public static List<Integer> splitStrIntList(String str, String splitChars) {
-        if(StringUtils.isEmpty(str))
+        if (StringUtils.isEmpty(str))
             return new ArrayList<Integer>(0);
         String[] strs = str.split(splitChars);
         List<Integer> list = new ArrayList<Integer>(strs.length);
@@ -159,6 +165,7 @@ public class StringUtilities {
     /**
      * 将string 转换为 long
      * 默认分割符为,
+     *
      * @param strs
      * @return 空 list
      */
@@ -182,6 +189,7 @@ public class StringUtilities {
     /**
      * 将string 转换为 long
      * 默认分割符为,
+     *
      * @param strs
      * @return 为 null
      */
@@ -204,6 +212,7 @@ public class StringUtilities {
 
     /**
      * 将string 转为list
+     *
      * @param str
      * @param splitChars
      * @return
@@ -223,6 +232,7 @@ public class StringUtilities {
     /**
      * 将string 转为list
      * 默认分割符为,
+     *
      * @param strs
      * @return 为 null
      */
@@ -246,6 +256,7 @@ public class StringUtilities {
     /**
      * 将string 转为list
      * 默认分割符为,
+     *
      * @param strs
      * @return 为 空list
      */
@@ -271,7 +282,7 @@ public class StringUtilities {
             str.append(splitChars);
         }
         String string = str.toString();
-        if(StringUtils.isNotEmpty(string)){
+        if (StringUtils.isNotEmpty(string)) {
             string = string.substring(0, string.lastIndexOf(","));
         }
         return string;
@@ -279,6 +290,7 @@ public class StringUtilities {
 
     /**
      * list 拼接
+     *
      * @param strList
      * @return
      */
@@ -289,36 +301,38 @@ public class StringUtilities {
 
     /**
      * 字符插入
-     * @param str 源内容
+     *
+     * @param str      源内容
      * @param strLater 需要插入在那个文件之后
-     * @param insert  需要插入的内容
+     * @param insert   需要插入的内容
      * @return
      */
-    public static String insert(String str , String strLater , String insert){
+    public static String insert(String str, String strLater, String insert) {
         int indexOf = str.indexOf(strLater);
-        if(indexOf == -1 ){
+        if (indexOf == -1) {
             return str;
-        }else{
+        } else {
 
         }
         StringBuffer sb = new StringBuffer(str);
-        sb.insert(indexOf+strLater.length(), "\r\n"+insert);
+        sb.insert(indexOf + strLater.length(), "\r\n" + insert);
         return sb.toString();
     }
 
     /**
      * 中文转 Unicode
+     *
      * @param str
      * @return
      */
-    public static String chinaToUnicode(String str){
-        String result="";
-        for (int i = 0; i < str.length(); i++){
+    public static String chinaToUnicode(String str) {
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
             int chr1 = (char) str.charAt(i);
-            if(chr1>=19968&&chr1<=171941){//汉字范围 \u4e00-\u9fa5 (中文)
-                result+="\\u" + Integer.toHexString(chr1);
-            }else{
-                result+=str.charAt(i);
+            if (chr1 >= 19968 && chr1 <= 171941) {//汉字范围 \u4e00-\u9fa5 (中文)
+                result += "\\u" + Integer.toHexString(chr1);
+            } else {
+                result += str.charAt(i);
             }
         }
         return result;
@@ -326,6 +340,7 @@ public class StringUtilities {
 
     /**
      * 判断是否为中文字符
+     *
      * @param c
      * @return
      */
@@ -345,28 +360,51 @@ public class StringUtilities {
 
     /**
      * 字符替换
+     *
      * @param str   abc
      * @param key   b
      * @param value a
-     * @return  aac
+     * @return aac
      */
-    public static String join(String str , String key , String value){
-        if(StringUtils.isEmpty(str))
+    public static String join(String str, String key, String value) {
+        if (StringUtils.isEmpty(str))
             return "";
         StringBuffer sb = new StringBuffer();
 
         String[] split = str.split(key);
-        for (int i = 0 ; i < split.length ; i++ ) {
-            if(split.length == (i+1)){
+        for (int i = 0; i < split.length; i++) {
+            if (split.length == (i + 1)) {
                 sb.append(split[i]);
-            }else{
+            } else {
                 sb.append(split[i]);
                 sb.append(value);
             }
         }
-        return sb.toString() ;
+        return sb.toString();
     }
 
+
+    public static String dbColumnToProperty(String str) {
+        if (StringUtils.isEmpty(str))
+            return "";
+        else {
+
+            return "";
+        }
+    }
+
+    //字符第一个大写
+    public static String initcap(String str) {
+        char[] ch = str.toCharArray();
+        if (ch[0] >= 'a' && ch[0] <= 'z') {
+            ch[0] = (char) (ch[0] - 32);
+        }
+        return new String(ch);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(initcap("ab_ca"));
+    }
 
 
 }
