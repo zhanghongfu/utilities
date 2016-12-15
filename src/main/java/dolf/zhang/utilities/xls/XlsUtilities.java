@@ -23,7 +23,6 @@ public class XlsUtilities {
 
     public static void main(String[] args) throws Exception {
         String filepath = "/Users/dolf/Desktop/2016双11淘宝爆款清单.xls";
-//        String filepath = "/Users/admaster/Desktop/1.xls";
 
         for (Object o : read(filepath)){
             System.out.println(o);
