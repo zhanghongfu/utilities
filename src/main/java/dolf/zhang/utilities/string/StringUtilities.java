@@ -402,6 +402,27 @@ public class StringUtilities {
         return new String(ch);
     }
 
+    /**
+     * 骆驼命名转db字段
+     * @param name
+     * @return
+     */
+    public static String camelToDb(String name){
+        String[] split = name.split("");
+        StringBuffer sb = new StringBuffer();
+        for (String s : split) {
+            if(!StringUtils.isAllUpperCase(s)){
+                sb.append(s);
+            }else{
+                sb.append("_");
+                sb.append(s.toLowerCase());
+            }
+
+        }
+        return  sb.toString();
+    }
+
+
     public static void main(String[] args) {
         System.out.println(initcap("ab_ca"));
     }
