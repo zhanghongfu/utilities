@@ -225,4 +225,54 @@ public class DateUtilities {
 		}
 		return now;
 	}
+
+	public static int getMonthSpace(String date1, String date2)
+			throws ParseException {
+		int result = 0;
+		Calendar c1 = Calendar.getInstance();
+		Calendar c2 = Calendar.getInstance();
+		c1.setTime(parseDate(date1,"yyyy-MM-dd"));
+		c2.setTime(parseDate(date2,"yyyy-MM-dd"));
+		result = c2.get(Calendar.MONTH) - c1.get(Calendar.MONTH);
+
+		return result == 0 ? 1 : Math.abs(result);
+
+	}
+
+	/**
+	 * 获取两个时间相差的月份
+	 * @param beginTime
+	 * @param endTime
+	 * @return
+	 * @throws ParseException
+	 */
+	public static int getIntervalMonth(String beginTime, String endTime) throws ParseException {
+		Calendar c1 = Calendar.getInstance();
+		c1.setTime(parseDate(beginTime,"yyyy-MM-dd"));
+
+		Calendar c2 = Calendar.getInstance();
+		c2.setTime(parseDate(endTime,"yyyy-MM-dd"));
+		int intBeginYear = c1.get(Calendar.YEAR);
+		int intEndYear = c2.get(Calendar.YEAR);
+		int intBeginMonth = c1.get(Calendar.MONTH)+1;
+		int intEndMonth = c2.get(Calendar.MONTH)+1;
+		return ((intEndYear - intBeginYear) * 12)
+				+ (intEndMonth - intBeginMonth) + 1;
+	}
+
+	/**
+	 *
+	 * @param beginTime
+	 * @param endTime
+	 * @return  负数 开始时间在前 正数 开始时间在后 0 时间相等
+	 * @throws ParseException
+	 */
+	public static int getIntervalDay(String beginTime, String endTime) throws ParseException {
+		Date beginDate = parseDate(beginTime, "yyyy-MM-dd");
+		Date endDate = parseDate(endTime,"yyyy-MM-dd");
+		long i = (beginDate.getTime()-endDate.getTime());
+		Long l = i / (24 * 60 * 60 * 1000);
+		return l.intValue();
+	}
+
 }
