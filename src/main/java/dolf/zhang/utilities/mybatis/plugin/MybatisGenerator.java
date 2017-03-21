@@ -20,8 +20,7 @@ public class MybatisGenerator {
 
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-//        File configFile = new File("/Users/admaster/IdeaProjects/ipg/ec/ec-services/generatorConfig.xml");
-        File configFile = new File("/Users/admaster/IdeaProjects/ipg/ec/ec-services/generatorConfig.xml");
+        File configFile = new File("/Users/dolf/x/generatorConfig.xml");
 
 
 

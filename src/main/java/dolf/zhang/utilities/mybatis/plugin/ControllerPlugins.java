@@ -98,14 +98,11 @@ public class ControllerPlugins extends PluginAdapter {
         service = new FullyQualifiedJavaType(servicesPackage + "." + serviceName);
         String controllerName = entityName.replaceAll("Entity", "") + "Controller";
         controller = new FullyQualifiedJavaType(controllerPackage + "." + controllerName);
-        FullyQualifiedJavaType baseController = new FullyQualifiedJavaType("cn.com.admaster.ipg.base.controller.BaseController");
         TopLevelClass topLevelClass = new TopLevelClass(controller);
         topLevelClass.setVisibility(JavaVisibility.PUBLIC);
-        topLevelClass.setSuperClass(baseController);
 
         topLevelClass.addAnnotation("@RestController");
         topLevelClass.addAnnotation("@RequestMapping");
-        topLevelClass.addImportedType(baseController);
         topLevelClass.addImportedType(service);
         topLevelClass.addImportedType(entity);
         topLevelClass.addImportedType(new FullyQualifiedJavaType("org.springframework.beans.factory.annotation.Autowired"));
