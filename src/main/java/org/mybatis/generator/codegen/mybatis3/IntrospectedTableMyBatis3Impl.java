@@ -254,4 +254,42 @@ extends IntrospectedTable
 			 return javaClientGenerator.requiresXMLGenerator();
 		 }
 	 }
+
+
+
+	 @Override
+    protected void calculateXmlAttributes() {
+        setIbatis2SqlMapPackage(calculateSqlMapPackage());
+        setIbatis2SqlMapFileName(calculateIbatis2SqlMapFileName());
+        setMyBatis3XmlMapperFileName(calculateMyBatis3XmlMapperFileName());
+        setMyBatis3XmlMapperPackage(calculateSqlMapPackage());
+
+        setIbatis2SqlMapNamespace(super.fullyQualifiedTable.getDomainObjectName());
+        setMyBatis3FallbackSqlMapNamespace(super.fullyQualifiedTable.getDomainObjectName());
+
+        setSqlMapFullyQualifiedRuntimeTableName(calculateSqlMapFullyQualifiedRuntimeTableName());
+        setSqlMapAliasedFullyQualifiedRuntimeTableName(calculateSqlMapAliasedFullyQualifiedRuntimeTableName());
+
+        setCountByExampleStatementId("countByExample"); //$NON-NLS-1$
+        setDeleteByExampleStatementId("deleteByExample"); //$NON-NLS-1$
+        setDeleteByPrimaryKeyStatementId("delete"); //$NON-NLS-1$
+        setInsertStatementId("insert"); //$NON-NLS-1$
+        setInsertSelectiveStatementId("insert"); //$NON-NLS-1$
+        setSelectAllStatementId("selectAll"); //$NON-NLS-1$
+        setSelectByExampleStatementId("selectByExample"); //$NON-NLS-1$
+        setSelectByExampleWithBLOBsStatementId("selectByExampleWithBLOBs"); //$NON-NLS-1$
+        setSelectByPrimaryKeyStatementId("detail"); //$NON-NLS-1$
+        setUpdateByExampleStatementId("updateByExample"); //$NON-NLS-1$
+        setUpdateByExampleSelectiveStatementId("updateByExampleSelective"); //$NON-NLS-1$
+        setUpdateByExampleWithBLOBsStatementId("updateByExampleWithBLOBs"); //$NON-NLS-1$
+        setUpdateByPrimaryKeyStatementId("updateByPrimaryKey"); //$NON-NLS-1$
+        setUpdateByPrimaryKeySelectiveStatementId("update"); //$NON-NLS-1$
+        setUpdateByPrimaryKeyWithBLOBsStatementId("updateByPrimaryKeyWithBLOBs"); //$NON-NLS-1$
+        setBaseResultMapId("BaseResultMap"); //$NON-NLS-1$
+        setResultMapWithBLOBsId("ResultMapWithBLOBs"); //$NON-NLS-1$
+        setExampleWhereClauseId("Example_Where_Clause"); //$NON-NLS-1$
+        setBaseColumnListId("Base_Column_List"); //$NON-NLS-1$
+        setBlobColumnListId("Blob_Column_List"); //$NON-NLS-1$
+        setMyBatis3UpdateByExampleWhereClauseId("Update_By_Example_Where_Clause"); //$NON-NLS-1$
+    }
 }

@@ -250,8 +250,6 @@ public class ClientExamplePluginAdapter extends PluginAdapter{
 	@Override
 	public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
 		generateToString(introspectedTable, topLevelClass);
-		FullyQualifiedJavaType baseEntity = new FullyQualifiedJavaType("cn.com.admaster.ipg.entity.BaseEntity");
-		topLevelClass.setSuperClass(baseEntity);
 		return super.modelBaseRecordClassGenerated(topLevelClass, introspectedTable);
 	}
 

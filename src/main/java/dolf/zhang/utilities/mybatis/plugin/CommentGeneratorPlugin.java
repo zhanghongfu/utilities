@@ -11,7 +11,8 @@ import org.mybatis.generator.internal.DefaultCommentGenerator;
 public class CommentGeneratorPlugin extends DefaultCommentGenerator{
 
 	public void addJavaFileComment(CompilationUnit compilationUnit) {
-		return;
+
+	    return;
 	}
 
 	public void addClassComment(InnerClass innerClass,

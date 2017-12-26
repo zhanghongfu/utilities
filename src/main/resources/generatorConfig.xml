@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <classPathEntry location="D:\Repository\HuaXiaRepository\mysql\mysql-connector-java\5.1.44\mysql-connector-java-5.1.44.jar"/>
+    <context id="test-ctx" targetRuntime="MyBatis3">
+        <property name="mergeable" value="false"></property>
+
+        <property name="autoDelimitKeywords" value="false"/>
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 格式化java代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化XML代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <plugin type="dolf.zhang.utilities.mybatis.plugin.ClientExamplePluginAdapter"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 取消注释 -->
+        <commentGenerator
+                type="dolf.zhang.utilities.mybatis.plugin.CommentGeneratorPlugin">
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/test"
+                        userId="root"
+                        password="123456"/>
+        <!-- 实体对象路径 -->
+        <javaModelGenerator targetPackage="dolf.zhang.entity"
+                            targetProject="utilities/src/main/java">
+        </javaModelGenerator>
+
+        <!-- mybatis xml文件路径 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="utilities/src/main/resources"/>
+
+        <table schema="test" tableName="xxl_job_qrtz_trigger_info" domainObjectName="TriggerInfoEntity">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

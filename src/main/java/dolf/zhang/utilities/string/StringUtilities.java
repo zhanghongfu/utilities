@@ -469,9 +469,46 @@ public class StringUtilities {
         return sb.toString();
     }
 
+
+    /**
+     * 字符串转16进制字符串
+     * @param strPart
+     * @return
+     */
+    public static String string2HexString(String strPart) {
+        StringBuffer hexString = new StringBuffer();
+        for (int i = 0; i < strPart.length(); i++) {
+            int ch = (int) strPart.charAt(i);
+            String strHex = Integer.toHexString(ch);
+            hexString.append(strHex);
+        }
+        return hexString.toString();
+    }
+
+
+    /**
+     * @Title:hexString2String
+     * @Description:16进制字符串转字符串
+     * @param src
+     *            16进制字符串
+     * @return 字节数组
+     * @throws
+     */
+    public static String hexString2String(String src) {
+        String temp = "";
+        for (int i = 0; i < src.length() / 2; i++) {
+            temp = temp
+                + (char) Integer.valueOf(src.substring(i * 2, i * 2 + 2),
+                16).byteValue();
+        }
+        return temp;
+    }
+
+
     public static void main(String[] args) {
 
-        System.out.println(dbToCamel("ab_c_a_d_sadas"));
+        System.out.println(string2HexString("A001020003"));
+        System.out.println(hexString2String(string2HexString("A001020003")));
     }
 
 

@@ -18,14 +18,11 @@ public class MybatisGenerator {
 
     public static void main(String[] args) throws InvalidConfigurationException, IOException, XMLParserException, SQLException, InterruptedException {
 
+        String filePath= MybatisGenerator.class.getResource("/").getPath()+"generatorConfig.xml";
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        File configFile = new File("/Users/dolf/x/generatorConfig.xml");
-
-
-
+        File configFile = new File(filePath);
         ConfigurationParser cp = new ConfigurationParser(warnings);
-
         Configuration config = cp.parseConfiguration(configFile);
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
         MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
