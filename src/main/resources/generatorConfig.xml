@@ -4,7 +4,7 @@
 <generatorConfiguration>
 
     <context id="test-ctx" targetRuntime="MyBatis3">
-        <property name="mergeable" value="false"></property>
+        <property name="mergeable" value="true"></property>
 
         <property name="autoDelimitKeywords" value="false"/>
         <!-- 生成的Java文件的编码 -->
@@ -26,7 +26,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/test"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/sys"
                         userId="root"
                         password="123456"/>
         <!-- 实体对象路径 -->
@@ -38,7 +38,7 @@
         <sqlMapGenerator targetPackage="mapper"
                          targetProject="utilities/src/main/resources"/>
 
-        <table schema="test" tableName="xxl_job_qrtz_trigger_info" domainObjectName="TriggerInfoEntity">
+        <table schema="sys" tableName="sys_user1" domainObjectName="User1Entity">
             <property name="useActualColumnNames" value="false"/>
         </table>
 
